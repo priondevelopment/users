@@ -20,14 +20,24 @@
     },
     "autoload": {
         "psr-4": {
-            "PrionDevelopment\\Users\\": ""
+            "PrionUsers\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PrionUsers\\Tests\\": "tests/"
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
+        "laravel": {
+            "providers": [
+                "PrionUsers\\Providers\\PrionUsersServiceProvider"
+            ],
+            "aliases": {
+                "PrionUsers": "PrionUsers\\PrionUsersFacade"
+            }
         }
-    },
+    }
     "config": {
         "sort-packages": true
     },
