@@ -1,0 +1,35 @@
+{
+    "name": "prion-development/users",
+    "description": "Create and Manage Users and Accounts.",
+    "license": "MIT",
+    "homepage": "https://priondevelopment.com/packages/users",
+    "support": {
+        "issues": "https://github.com/prion-development/framework/issues",
+        "source": "https://github.com/prion-development/framework"
+    },
+    "authors": [
+        {
+            "name": "Brandon Best",
+            "email": "brandonbest@priondevelopmnt.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "watson/rememberable": "^2.0",
+        "prion-development/users": "5.6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "PrionDevelopment\\Users\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
