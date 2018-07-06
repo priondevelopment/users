@@ -15,17 +15,15 @@
     ],
     "require": {
         "php": "^7.1.1",
-        "watson/rememberable": "^2.0",
-        "prion-development/users": "5.6.*"
+        "illuminate/support": "~5.6",
+        "watson/rememberable": "^2.0"
     },
     "autoload": {
+        "classmap": [
+            "src"
+        ],
         "psr-4": {
             "PrionUsers\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "PrionUsers\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -37,7 +35,7 @@
                 "PrionUsers": "PrionUsers\\PrionUsersFacade"
             }
         }
-    }
+    },
     "config": {
         "sort-packages": true
     },
