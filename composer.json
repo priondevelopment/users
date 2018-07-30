@@ -4,8 +4,8 @@
     "license": "MIT",
     "homepage": "https://priondevelopment.com/packages/users",
     "support": {
-        "issues": "https://github.com/prion-development/framework/issues",
-        "source": "https://github.com/prion-development/framework"
+        "issues": "https://github.com/prion-development/users/issues",
+        "source": "https://github.com/prion-development/users"
     },
     "authors": [
         {
@@ -15,12 +15,11 @@
     ],
     "require": {
         "php": "^7.1.1",
-        "watson/rememberable": "^2.0",
-        "prion-development/users": "5.6.*"
+        "watson/rememberable": "^2.0"
     },
     "autoload": {
         "psr-4": {
-            "PrionDevelopment\\Users\\": ""
+            "PrionUsers\\": "src/"
         }
     },
     "extra": {
