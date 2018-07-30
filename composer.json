@@ -18,13 +18,21 @@
         "watson/rememberable": "^2.0"
     },
     "autoload": {
+        "classmap": [
+            "src"
+        ],
         "psr-4": {
             "PrionUsers\\": "src/"
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
+        "laravel": {
+            "providers": [
+                "PrionUsers\\Providers\\PrionUsersServiceProvider"
+            ],
+            "aliases": {
+                "PrionUsers": "PrionUsers\\PrionUsersFacade"
+            }
         }
     },
     "config": {
