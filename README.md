@@ -8,15 +8,15 @@ Tested on Lumen 5.6
 
 `composer require "prion-development/users:5.6.*"`
 
-In config/app.php, add the following provider:  
-`PrionDevelopment\Providers\PrionUsersProviderService::class`
+In config/app.php, add the following provider:
+PrionDevelopment\Providers\PrionUsersProviderService::class
 
-Publish configuration files  
-`php artisan vendor:publish --tag="prionusers"`
+Publish configuration files
+php artisan vendor:publish --tag="prionusers"
 
-Clear or reset your Laravel config cache.  
-`php artisan config:clear`  
-`php artisan config:cache`
+Clear or reset your Laravel config cache.
+php artisan config:clear
+php artisan config:cache
 
 
 ## License

@@ -48,6 +48,9 @@ class PrionUsersServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        require realpath(__DIR__ . '/../Http/Routes/Account.php');
+        require realpath(__DIR__ . '/../Http/Routes/User.php');
+
         // Register published configuration.
         $this->publishes([
             __DIR__ . '/config/prionusers.php' => config_path('prionusers.php'),

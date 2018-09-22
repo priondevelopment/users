@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class UserEmail extends Model
 {
 
-    use PrionUserTrait;
-
     /**
      * The database table used by the model.
      *
