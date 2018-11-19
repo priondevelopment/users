@@ -4,10 +4,8 @@ namespace PrionUsers\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AccountPermission extends Model
+class VerificationCode extends Model
 {
-
-    use PrionUserTrait;
 
     /**
      * The database table used by the model.
@@ -25,7 +23,7 @@ class AccountPermission extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        $this->table = config('prionusers.tables.account_permissions');
+        $this->table = config('prionusers.tables.verification_codes');
     }
 
 }

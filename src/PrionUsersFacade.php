@@ -3,7 +3,7 @@
 namespace PrionUsers;
 
 /**
- * This file is part of Laratrust,
+ * This file is part of PrionUsers,
  * a role & permission management solution for Laravel.
  *
  * @license MIT

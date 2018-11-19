@@ -1,3 +1,3 @@
 <?php
 
-Route::get('user', "\PrionUsers\Controllers\UserController@getUser");
+$router->get('user', "\PrionUsers\Controllers\UserController@getUser");

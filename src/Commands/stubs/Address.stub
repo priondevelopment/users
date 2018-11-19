@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use PrionUsers\Models;
+
+class Address extends Models\Address
+{
+    //
+}

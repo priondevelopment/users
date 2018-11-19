@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Composer;
 use Illuminate\Filesystem\Filesystem;
 
-class PrionUsersSetup extends Command
+class Setup extends Command
 {
     /**
      * The console command name.

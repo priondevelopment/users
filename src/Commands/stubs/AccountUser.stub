@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use PrionUsers\Models;
+
+class AccountUser extends Models\AccountUser
+{
+    //
+}

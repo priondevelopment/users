@@ -4,6 +4,15 @@ return [
 
     'use_cache' => true,
 
+    'middleware' => [
+        'register' => true,
+    ],
+
+    'base_path' => [
+        'users' => 'user',
+        'accounts' => 'account',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | PrionUsers Tables

@@ -1,26 +1,26 @@
 <?php
 
-namespace PrionUsers\Commands;
+namespace Api\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Composer;
 use Illuminate\Filesystem\Filesystem;
 
-class PrionUsersSeeder extends Command
+class Seeder extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'prionusers:seeder';
+    protected $name = 'prionapi:seeder';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Seed the Prion Development Users tables.';
+    protected $description = 'Seed the Prion Development Api tables.';
 
     /**
      * Create a new notifications table command instance.
@@ -42,12 +42,12 @@ class PrionUsersSeeder extends Command
      */
     public function handle()
     {
-        $this->laravel->view->addNamespace('prionusers', substr(__DIR__, 0, -8).'views');
+        $this->laravel->view->addNamespace('prionapi', substr(__DIR__, 0, -8).'views');
 
         if (file_exists($this->seederPath())) {
             $this->line('');
 
-            $this->warn("The Prion Users Seeder file already exists. Delete the existing one if you want to create a new one.");
+            $this->warn("The Prion Api Seeder file already exists. Delete the existing one if you want to create a new one.");
             $this->line('');
             return;
         }
@@ -71,11 +71,11 @@ class PrionUsersSeeder extends Command
      */
     protected function createSeeder()
     {
-        $user_table = config('prionusers.models.users', 'App\User');
+        $models = config('prionapi.models');
 
-        $output = $this->laravel->view->make('prionusers::seeder')
+        $output = $this->laravel->view->make('prionapi::seeder')
             ->with(compact([
-                'user_table',
+                'models',
             ]))
             ->render();
 
@@ -95,7 +95,7 @@ class PrionUsersSeeder extends Command
      */
     protected function seederPath()
     {
-        return database_path("seeds/PrionUsersSeeder.php");
+        return database_path("seeds/PrionApiSeeder.php");
     }
 
 }

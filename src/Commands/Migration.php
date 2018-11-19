@@ -1,53 +1,33 @@
 <?php
 
-namespace PrionUsers\Commands;
+namespace Api\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Composer;
 use Illuminate\Filesystem\Filesystem;
 
-class PrionUsersTableMigrationCommand extends Command
+class Migration extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'prionusers:migration';
+    protected $name = 'prionapi:migration';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a migration for the users table';
+    protected $description = 'Create a migration for the api tables';
 
     /**
-     * The filesystem instance.
+     * Suffix of the migration name.
      *
-     * @var \Illuminate\Filesystem\Filesystem
+     * @var string
      */
-    protected $files;
-
-    /**
-     * @var \Illuminate\Support\Composer
-     */
-    protected $composer;
-
-    /**
-     * Create a new notifications table command instance.
-     *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
-     * @param  \Illuminate\Support\Composer    $composer
-     * @return void
-     */
-    public function __construct(Filesystem $files, Composer $composer)
-    {
-        parent::__construct();
-
-        $this->files = $files;
-        $this->composer = $composer;
-    }
+    protected $migrationSuffix = 'prionapi_setup_tables';
 
     /**
      * Execute the console command.
@@ -56,9 +36,9 @@ class PrionUsersTableMigrationCommand extends Command
      */
     public function handle()
     {
-        $this->laravel->view->addNamespace('prionusers\\PrionUsers', substr(__DIR__, 0, -8).'views');
+        $this->laravel->view->addNamespace('prionapi', substr(__DIR__, 0, -8).'views');
         $this->line('');
-        $this->info("Prion Development Users Migration Creation.");
+        $this->info("Prion Development Api Migration Creation.");
         $this->line('');
         $this->comment($this->generateMigrationMessage());
 
@@ -105,8 +85,8 @@ class PrionUsersTableMigrationCommand extends Command
         $migrationPath = $this->getMigrationPath();
 
         $output = $this->laravel->view
-            ->make('prionusers:migration')
-            ->with(['prionusers' => config('prionusers')])
+            ->make('prionapi::migrations')
+            ->with(['prionapi' => config('prionapi')])
             ->render();
 
         if (!file_exists($migrationPath) && $fs = fopen($migrationPath, 'x')) {
@@ -127,7 +107,7 @@ class PrionUsersTableMigrationCommand extends Command
      */
     protected function generateMigrationMessage()
     {
-        $tables = Collection::make(config('prionusers.tables'))
+        $tables = collect(config('prionapi.tables'))
             ->sort();
 
         return "A migration that creates {$tables->implode(', ')} "
@@ -143,7 +123,7 @@ class PrionUsersTableMigrationCommand extends Command
      */
     protected function getExistingMigrationsWarning(array $existingMigrations)
     {
-        $base = "Prion Development Users migrations already exist.\nFollowing";
+        $base = "Prion Development API migrations already exist.\nFollowing";
         if (count($existingMigrations) > 1) {
             $base .= " files were found: ";
         } else {
