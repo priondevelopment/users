@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Commands;
+namespace PrionUsers\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Composer;

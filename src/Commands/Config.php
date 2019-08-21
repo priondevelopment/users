@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Commands;
+namespace PrionUsers\Commands;
 
 /**
  * This file is part of Seetting,
